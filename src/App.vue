@@ -1,30 +1,27 @@
+<script setup>
+import TodoApp from "./components/TodoApp.vue";
+import { useCounterStore } from "./store/Counter.js";
+</script>
+
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <TodoApp></TodoApp>
+  <p>Double count is {{ useCounterStore().doubleCount }}</p>
+  <p>Double Plus One count is {{ useCounterStore().doublePlusOne }}</p>
+  <button @click="changeCount">Change Count to 2</button>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+<script>
+export default {
+  name: "App",
+  components: {
+    TodoApp,
+  },
+  methods: {
+    changeCount() {
+      const counter = useCounterStore();
+      counter.count = 2;
+      return { counter };
+    },
+  },
+};
+</script>
