@@ -27,6 +27,8 @@ export default {
   setup() {
     const todoListStore = useTodoListStore();
     const newTodo = ""; // Input field value
+    console.log(todoListStore);
+    console.log(newTodo);
   },
 };
 </script>

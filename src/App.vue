@@ -1,21 +1,22 @@
 <script setup>
-import TodoApp from "./components/TodoApp.vue";
+// import TodoApp from "./components/TodoApp.vue";
 import { useCounterStore } from "./store/Counter.js";
 </script>
 
 <template>
-  <TodoApp></TodoApp>
   <p>Double count is {{ useCounterStore().doubleCount }}</p>
   <p>Double Plus One count is {{ useCounterStore().doublePlusOne }}</p>
   <button @click="changeCount">Change Count to 2</button>
+
+  <!-- <TodoApp></TodoApp> -->
 </template>
 
 <script>
 export default {
   name: "App",
-  components: {
-    TodoApp,
-  },
+  // components: {
+  //   TodoApp,
+  // },
   methods: {
     changeCount() {
       const counter = useCounterStore();
